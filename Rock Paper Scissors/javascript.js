@@ -4,30 +4,57 @@ function getComputedChoice(results){
     let index = Math.floor(Math.random()*results.length);
     return results[index];
 }
-function playRound(array, Computer){
-    let ComputerAnswer = Computer(array);
-    let PlayerAnswer = prompt("Please choose: Rock, Paper or Scissors")
-    ComputerAnswer = ComputerAnswer.toLowerCase();
-    PlayerAnswer = PlayerAnswer.toLowerCase();
-    console.log("Computer's choice: " + ComputerAnswer);
-    console.log("Player's choice: " + PlayerAnswer);
-    if (ComputerAnswer == PlayerAnswer){
+const PlayerScore = document.getElementById("playerScore");
+const ComputerScore = document.getElementById("computerScore");
+
+let PScore = 0
+let CScore = 0
+
+function playRound(array, Computer, PAnswer){
+    let CAnswer = Computer(array);
+    CAnswer = CAnswer.toLowerCase();
+    PAnswer = PAnswer.toLowerCase();
+    if (CAnswer == PAnswer){
         resultofthegame = "TIE";
-    }else if (ComputerAnswer == "rock" && PlayerAnswer == "scissors"){
+    }else if (CAnswer == "rock" && PAnswer == "scissors"){
         resultofthegame = "Computer Wins";
-    }else if (ComputerAnswer == "scissors" && PlayerAnswer == "rock"){
+        CScore++;
+    }else if (CAnswer == "scissors" && PAnswer == "rock"){
         resultofthegame = "Player Wins";
-    }else if (ComputerAnswer == "scissors" && PlayerAnswer == "paper"){
+        PScore++;
+    }else if (CAnswer == "scissors" && PAnswer == "paper"){
         resultofthegame = "Computer Wins";
-    }else if (ComputerAnswer == "paper" && PlayerAnswer == "scissors"){
+        CScore++;
+    }else if (CAnswer == "paper" && PAnswer == "scissors"){
         resultofthegame = "Player Wins";
-    }else if (ComputerAnswer == "paper" && PlayerAnswer == "rock"){
+        PScore++;
+    }else if (CAnswer == "paper" && PAnswer == "rock"){
         resultofthegame = "Computer Wins";
+        CScore++;
     }else{
         resultofthegame = "Player Wins";
+        PScore++;
     }
-    return resultofthegame;
+    if(PScore == 5){
+        alert("Player WINS!")
+    }else if(CScore == 5){
+        alert("Computer WINS!")
+    }
+    PlayerScore.textContent = `Player: ${PScore}`
+    ComputerScore.textContent = `Computer: ${CScore}`
 }
+
+
+document.getElementById("rock").addEventListener("click", function() {
+    playRound(results, getComputedChoice, "Rock")
+})
+document.getElementById("paper").addEventListener("click", function() {
+    playRound(results, getComputedChoice, "Paper")
+})
+document.getElementById("scissors").addEventListener("click", function() {
+    playRound(results, getComputedChoice, "Scissors")
+})
+
 function game(play, number, array, Computer){
     let ComputerCnt = 0;
     let PlayerCnt = 0;
@@ -43,4 +70,3 @@ function game(play, number, array, Computer){
     console.log("Score: ")
     console.log("Computer " + ComputerCnt + ":" + PlayerCnt + " Player")
 }
-game(playRound, 5, results, getComputedChoice);

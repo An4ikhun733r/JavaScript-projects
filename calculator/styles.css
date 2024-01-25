@@ -13,6 +13,7 @@ body {
     border-radius: 10px;
 }
 
+.inline-sign,
 .inline-button {
     display: inline-block;
     background-color: #6e59e7;
@@ -27,6 +28,9 @@ body {
     vertical-align: middle;
 }
 
+.dis{
+    background-color: #ffffff;
+}
 #calc-display {
     width: 80%;
     font-size: 20px;
@@ -34,5 +38,5 @@ body {
 }
 
 #display {
-    background-color: #ffffff;
+    font-size: small;
 }

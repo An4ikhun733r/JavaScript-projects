@@ -1,5 +1,6 @@
 let fnum = "";
 let snum = "";
+let prevsign = "";
 let operator = null;
 let shouldResetScreen = false;
 const numButton = document.querySelectorAll(".inline-button");
@@ -16,14 +17,19 @@ signButton.forEach((button) =>
 )
 
 function appendNumber(number) {
-    if (curscreen.textContent === '0')
-    {
+    if (curscreen.textContent === '0' || shouldResetScreen) {
         curscreen.textContent = number;
-    }
-    else
-    {
+        shouldResetScreen = false;
+    } else {
         curscreen.textContent += number;
     }
+}
+
+function isSign(sign){
+    if (sign == '×' || sign == '+' || sign == '-' || sign == '÷'){
+        return true
+    }
+    return false
 }
 
 function appendSign(sign) {
@@ -31,21 +37,31 @@ function appendSign(sign) {
         clear()
         return
     }
-    if (sign == "="){
-        snum = curscreen.textContent.slice(1);
-        curscreen.textContent += sign;
-        fnum = parseInt(fnum);
-        snum = parseInt(snum);
-        curscreen.textContent = operate(fnum, snum, prevsign);
-        lastscreen.textContent = ""
-        return
-    }else{
-        prevsign = sign
-    }
-    curscreen.textContent += sign;
-    lastscreen.textContent = curscreen.textContent;
+
+    if (isSign(sign)){
+        lastscreen.textContent = curscreen.textContent + sign;
+        curscreen.textContent = "";
+    }    
+
     fnum = lastscreen.textContent.slice(0, -1);
-    curscreen.textContent = "‎ "
+
+    if (sign == "="){
+        snum = curscreen.textContent;
+        fnum = parseFloat(fnum);
+        snum = parseFloat(snum);
+        alert(fnum)
+        alert(snum)
+        curscreen.textContent = operate(fnum, snum, prevsign);
+        lastscreen.textContent = "";
+        shouldResetScreen = false;
+    }else{
+        if (isSign(prevsign)){
+            snum = curscreen.textContent;
+            fnum = operate(parseFloat(fnum), parseFloat(snum), sign);
+            curscreen.textContent = fnum + sign;
+        }
+        prevsign = sign;
+    }
 }
 
 function clear() {

@@ -4,13 +4,15 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background-color: #f5f5f5;
 }
 
 .calculator-container {
     display: inline-block;
-    background-color: #eed2d2;
-    padding: 10px;
+    background-color: #fff;
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .inline-sign,
@@ -18,25 +20,40 @@ body {
     display: inline-block;
     background-color: #6e59e7;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 18px;
+    margin: 8px 6px;
     cursor: pointer;
-    border-radius: 4px;
-    vertical-align: middle;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
 }
 
-.dis{
-    background-color: #ffffff;
+.inline-sign:hover,
+.inline-button:hover {
+    background-color: #5347b6;
 }
-#calc-display {
-    width: 80%;
-    font-size: 20px;
-    padding: 5px;
+
+.dis {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#cur-display {
+    font-size: 24px;
+    padding: 10px;
 }
 
 #display {
     font-size: small;
+}
+
+/* Additional styling for the clear and delete buttons */
+.inline-sign:active,
+.inline-button:active {
+    background-color: #463aa2;
 }

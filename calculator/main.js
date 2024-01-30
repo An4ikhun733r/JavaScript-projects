@@ -17,14 +17,17 @@ signButton.forEach((button) =>
 )
 
 function appendNumber(number) {
-    if (curscreen.textContent === '0') {
+    if (curscreen.textContent === '0' && shouldResetScreen == true) {
         curscreen.textContent = number;
+        shouldResetScreen = false
     } else if (number == "="){
         snum = curscreen.textContent;
         fnum = parseFloat(fnum);
         snum = parseFloat(snum);
         curscreen.textContent = operate(fnum, snum, operator);
         lastscreen.textContent = "";
+        prevsign = ""
+        shouldResetScreen = true
     } else {
         if (isSign(lastscreen.textContent[lastscreen.textContent.length-1]) && shouldResetScreen) {
             curscreen.textContent = number;
@@ -56,16 +59,14 @@ function appendSign(sign) {
 
     operator = sign
 
-    if (prevsign != operator && prevsign != "") {
-        alert(prevsign)
-        alert(operator)
+    if (prevsign != "=" && prevsign != "") {
         snum = curscreen.textContent;
         fnum = parseFloat(fnum);
         snum = parseFloat(snum);
         fnum = operate(fnum, snum, prevsign)
         curscreen.textContent = fnum;
-        lastscreen.textContent = "";
         prevsign = ""
+        shouldResetScreen = true
     }
 
     
@@ -98,6 +99,10 @@ function mult(a, b){
 }
 
 function div(a, b){
+    if (b == 0){
+        alert("You cannot divide 0!")
+        return
+    }
     return a / b;
 }
 

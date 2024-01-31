@@ -1,0 +1,23 @@
+body {
+    background-color: aqua;
+}
+
+button {
+    align-self: center;
+}
+
+/* Style for book display */
+#bookContainer {
+    margin-top: 20px;
+}
+
+.book {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 5px;
+    cursor: pointer;
+}

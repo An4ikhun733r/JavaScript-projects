@@ -1,0 +1,59 @@
+/* Add global box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Header styles */
+  header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center; /* Center align header content */
+  }
+  
+  /* Logo styles */
+  .logo {
+      margin-bottom: 10px; /* Add some space below the logo */
+      font-size: 24px;
+      color: #fff; /* Ensure the logo is white */
+  }
+  
+  /* Navigation styles */
+  nav ul {
+      padding: 0;
+      list-style-type: none;
+      display: inline-block; /* Allows the menu to be centered */
+      margin: 0; /* Reset margin */
+  }
+  
+  nav ul li {
+      display: inline; /* Display list items inline */
+      margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+      margin-right: 0; /* Remove margin from the last item */
+  }
+  
+  nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px; /* Add padding to increase clickable area */
+      display: inline-block; /* Allows padding to take effect */
+  }
+  
+  /* Content styles */
+  #content {
+      padding: 20px; /* Add padding inside the content */
+      margin-top: 20px; /* Add some space above the content */
+      background-color: #f4f4f4; /* A light background for the content */
+      color: #333; /* Darker text for contrast */
+  }
+  
+  /* Add a max-width to the content and center it */
+  .container {
+      max-width: 800px;
+      margin: auto;
+      overflow: auto; /* Clear the floated elements */
+  }
+  

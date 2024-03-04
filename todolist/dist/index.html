@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "styles.css">
+    <link rel="stylesheet" href="styles.css">
     <title>To Do List</title>
 </head>
 <body>
-    <div class = "content"></div>
-    <script src = "main.js"></script>   
+    <h1>To Do List</h1>
+    <div class="content">
+        <dialog class="project-modal" data-project-modal>
+            <form class="project-form" data-project-form>
+          <label for="project-title">Title</label>
+          <input name="project-title" type="text" value="" placeholder="Enter project title" data-project-title/>
+          <div class="form-controls">
+            <button class="submit-project-form" data-submit-project-form>Add</button>
+            <button class="close-project-form" data-close-project-form>Close</button>
+          </div>
+            </form>
+          </dialog>
+        <ul id="task-list"></ul>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

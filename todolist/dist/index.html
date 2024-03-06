@@ -9,18 +9,49 @@
 </head>
 <body>
     <h1>To Do List</h1>
-    <div class="content">
-        <dialog class="project-modal" data-project-modal>
-            <form class="project-form" data-project-form>
-          <label for="project-title">Title</label>
-          <input name="project-title" type="text" value="" placeholder="Enter project title" data-project-title/>
-          <div class="form-controls">
-            <button class="submit-project-form" data-submit-project-form>Add</button>
-            <button class="close-project-form" data-close-project-form>Close</button>
-          </div>
-            </form>
-          </dialog>
-        <ul id="task-list"></ul>
+    <div class="container">
+        <div class="left-side">
+            <div class="form-heading">
+                <h2>Add New ToDo to Projects</h2>
+            </div>
+            <div class="form">
+                <button class="add-todo-button">Add New ToDo</button>
+                <div id="add-todo-form" style="display: none;">
+                    <form id="add-todo">
+                        <label for="Project">Project:</label>
+                        <select id="Project" name="Project">
+                            <option value="DefaultProject">DefaultProject</option>
+                            <option value="Create-New-Project">Create New Project</option>
+                        </select>
+                        <label for="Title">Title:</label>
+                        <input type="text" id="Title" name="Title">
+                        <label for="Description">Description:</label>
+                        <input type="text" id="Description" name="Description">
+                        <label for="DueDate">DueDate:</label>
+                        <input type="text" id="DueDate" name="DueDate">
+                        <label for="Priority">Priority:</label>
+                        <select id="Priority" name="Priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                        <label for="CheckList">CheckList Items Added (if any):</label>
+                        <ul class="todo-ul"></ul>
+                        </form>
+                        <input type="text" id="add-to-checklist" name="add-to-checklist" placeholder="Type CheckList Item Here">
+                        <button class="add-to-checklist">Add Item To CheckList</button>
+                        <br><br>
+                        <button type="submit" class="submit-button">Submit ToDo</button>
+                        <button type="reset" class="reset-button">Reset Form</button>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="todos-heading">
+                <h2>Current ToDos' In Projects</h2>
+            </div>
+            <!-- Dynamically inserted projects will go here -->
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

@@ -20,6 +20,4 @@ let clickEventsModule = (function() {
     submitButton.addEventListener("click", createToDo)
 })();
 
-let ToDo = createToDo("Homework", "2 exercises", "08.03", "High", "1st Exercise, 2nd Exercise");
-console.log("Properties of ToDo", ToDo);
 

@@ -14,7 +14,10 @@ let clickEventsModule = (function() {
     addToCheckList.addEventListener("click", addItemToCheckList);
 
     const clearButton = document.querySelector(".reset-button");
-    clearButton.addEventListener("click", clearForm)
+    clearButton.addEventListener("click", clearForm);
+
+    const submitButton = document.querySelector(".submit-button");
+    submitButton.addEventListener("click", createToDo)
 })();
 
 let ToDo = createToDo("Homework", "2 exercises", "08.03", "High", "1st Exercise, 2nd Exercise");

@@ -35,7 +35,7 @@ border-radius: 8px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.form-heading h2, .todos-heading h2 {
+.form-heading h2, .right-side h2 {
 color: #333;
 padding-bottom: 10px;
 border-bottom: 2px solid #eee;

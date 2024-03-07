@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>To Do List</h1>
-    <div class="container">
+    <div class="container"> 
         <div class="left-side">
             <div class="form-heading">
                 <h2>Add New ToDo to Projects</h2>
@@ -24,11 +24,11 @@
                             <option value="Create-New-Project">Create New Project</option>
                         </select>
                         <label for="Title">Title:</label>
-                        <input type="text" id="Title" name="Title">
+                        <input type="text" id="Title" name="Title" placeholder="Required Field">
                         <label for="Description">Description:</label>
-                        <input type="text" id="Description" name="Description">
+                        <input type="text" id="Description" name="Description" placeholder="Required Field">
                         <label for="DueDate">DueDate:</label>
-                        <input type="text" id="DueDate" name="DueDate">
+                        <input type="date" id="DueDate" name="DueDate" placeholder="Required Field">
                         <label for="Priority">Priority:</label>
                         <select id="Priority" name="Priority">
                             <option value="Low">Low</option>
@@ -47,10 +47,7 @@
             </div>
         </div>
         <div class="right-side">
-            <div class="todos-heading">
-                <h2>Current ToDos' In Projects</h2>
-            </div>
-            <!-- Dynamically inserted projects will go here -->
+            <h2>Current ToDos' In Projects</h2>
         </div>
     </div>
     <script src="main.js"></script>

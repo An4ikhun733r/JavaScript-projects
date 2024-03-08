@@ -46,3 +46,29 @@ export function clearForm(){
     }
     document.getElementById("add-todo").reset();
 }
+
+export function displayToDo(){
+    const removeDivs = document.querySelectorAll(".card");
+    for(let i = 0; i < removeDivs.length; i++){
+        removeDivs[i].remove();
+    }
+
+    const projects = document.querySelector(".right-side");
+    const card = document.createElement("div");
+    card.classList.add("card");
+    projects.appendChild(card);
+
+    let Title = localStorage.getItem("Title");
+    let Description = localStorage.getItem("Description");
+    let DueDate = localStorage.getItem("DueDate");
+    let Priority = localStorage.getItem("Priority");
+    let CheckList = localStorage.getItem("CheckList");
+
+    let displayArray = {Title, Description, DueDate, Priority, CheckList}
+
+    for (let key in displayArray){
+        const para = document.createElement("p");
+        para.textContent = (`${key}: ${displayArray[key]}`);
+        card.appendChild(para);
+    }
+}

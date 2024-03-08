@@ -1,22 +1,23 @@
 import {parseISO, startOfToday} from 'date-fns'
 import { clearForm } from './dom-manip';
+import { saveToDoToLocal } from './manage-local-storage';
 
 let toDoArray = [];
 
 export const createToDo = () => {
-    let title = document.getElementById("Title").value;
-    let description = document.getElementById("Description").value;
-    let dueDate = document.getElementById("DueDate").value;
+    let Title = document.getElementById("Title").value;
+    let Description = document.getElementById("Description").value;
+    let DueDate = document.getElementById("DueDate").value;
     let Priority = document.getElementById("Priority").value;
 
-    if (title == "" || description == "" || dueDate == ""){
+    if (Title == "" || Description == "" || DueDate == ""){
         alert("The Title, Desctiption and Due Date are required fields");
         return;
     }
 
-    if (parseISO(dueDate) < startOfToday()){
+    if (parseISO(DueDate) < startOfToday()){
         alert("This date is already passed!");
-        console.log("Due Date: ", dueDate);
+        console.log("Due Date: ", DueDate);
         console.log("Current Date: ", startOfToday());
         return;
     }
@@ -31,11 +32,13 @@ export const createToDo = () => {
     let CheckList = CheckListArray.join(", ");
 
     console.log("called createToDo module, creating todo now");
-    console.log({title, description, dueDate, Priority, CheckList});
+    console.log({Title, Description, DueDate, Priority, CheckList});
     console.log("pushed the data in the array");
-    toDoArray.push({title, description, dueDate, Priority, CheckList});
+    toDoArray.push({Title, Description, DueDate, Priority, CheckList});
     console.log(toDoArray);
 
+    saveToDoToLocal({Title, Description, DueDate, Priority, CheckList});
+
     clearForm();
-    return {title, description, dueDate, Priority, CheckList};
+    return {Title, Description, DueDate, Priority, CheckList};
 }

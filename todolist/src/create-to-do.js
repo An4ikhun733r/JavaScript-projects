@@ -37,7 +37,7 @@ export const createToDo = () => {
     toDoArray.push({Title, Description, DueDate, Priority, CheckList});
     console.log(toDoArray);
 
-    saveToDoToLocal({Title, Description, DueDate, Priority, CheckList});
+    saveToDoToLocal({Title, Description, DueDate, Priority}, CheckList);
 
     clearForm();
     return {Title, Description, DueDate, Priority, CheckList};

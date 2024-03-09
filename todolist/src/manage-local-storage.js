@@ -1,6 +1,6 @@
 import { displayToDo } from "./dom-manip";
 
-export function saveToDoToLocal({Title, Description, DueDate, Priority, CheckList}){
+export function saveToDoToLocal({Title, Description, DueDate, Priority}, CheckList){
     console.log("Saving object to the local storage!");
     localStorage.setItem("Title", document.getElementById("Title").value);
     localStorage.setItem("Description", document.getElementById("Description").value);

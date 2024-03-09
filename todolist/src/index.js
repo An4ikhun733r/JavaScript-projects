@@ -1,10 +1,10 @@
 import { blankProjectLoad } from "./blank-project-load";
-import { displayTheForm, addItemToCheckList, clearForm } from "./dom-manip";
+import { displayTheForm, addItemToCheckList, clearForm, displayToDo } from "./dom-manip";
 import { createToDo } from "./create-to-do";
 
 blankProjectLoad();
 
-//initialDomManip();
+displayToDo();
 
 let clickEventsModule = (function() {
     const addNewToDo = document.querySelector(".add-todo-button");

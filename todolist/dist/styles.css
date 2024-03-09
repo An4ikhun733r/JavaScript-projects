@@ -133,3 +133,42 @@ color: #ff0000;
 .card p {
     margin-bottom: 10px;
 }
+
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.display-li {
+    cursor: pointer;
+}
+
+.remove-todo-button {
+    display: inline-block;
+    background: #ff0000; /* Set your desired background color */
+    color: #fff; /* Set your desired text color */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.remove-todo-button:hover {
+    background: #cc0000; /* Set your desired background color on hover */
+}
+
+/* Position the button at the end of the todo list card */
+.todo-ul .remove-todo-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Ensure the button is at the end even when the list item has position:relative */
+.todo-ul li {
+    position: relative;
+}
